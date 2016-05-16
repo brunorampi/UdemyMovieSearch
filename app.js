@@ -34,4 +34,22 @@ app.get('/', function(req, res) {
   res.send(SERVER_MSG);
 });
 
+app.get('/results', function(req, res) {
+  const searchUrl = 'http://www.omdbapi.com/?s=dragon&plot=full&tomatoes=true&type=movie';
+
+  request(searchUrl, function(error, response, body) {
+    if (!error && response.statusCode === 200) {
+      const searchResults = JSON.parse(body);
+
+      res.render('results', {
+        searchResults: searchResults.Search
+      });
+
+    } else {
+      console.log('Status Code: ', response.statusCode);
+      console.log('Error: ', error);
+    }
+  });
+});
+
 // MAIN
