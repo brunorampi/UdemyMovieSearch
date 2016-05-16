@@ -31,19 +31,25 @@ app.listen(PORT, function() {
 // ROUTES
 
 app.get('/', function(req, res) {
-  res.send(SERVER_MSG);
+  res.render('search');
 });
 
 app.get('/results', function(req, res) {
-  const searchUrl = 'http://www.omdbapi.com/?s=dragon&plot=full&tomatoes=true&type=movie';
+  const searchTerm = req.query.searchTerm;
+  const mediaType = req.query.mediaType;
+  const searchUrl = `http://www.omdbapi.com/?s=${searchTerm}&type=${mediaType}`;
 
   request(searchUrl, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       const searchResults = JSON.parse(body);
 
-      res.render('results', {
-        searchResults: searchResults.Search
-      });
+      if (searchResults.Search) {
+        res.render('results', {
+          searchResults: searchResults.Search
+        });
+      } else {
+        res.send("No results found!");
+      }
 
     } else {
       console.log('Status Code: ', response.statusCode);
