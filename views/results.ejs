@@ -1,12 +1,23 @@
 
 <? include partials/header ?>
 
-<? searchResults.forEach(function(item) { ?>
+<div class="jumbotron">
+  <h1 class="text-center">Search Results</h1>
+</div>
 
-  <h2> <?= item.Title ?> ( <?= item.Year ?>) </h2>
+<div class="container" style="max-width: 400px">
 
-  <img src=" <?= item.Poster ?> ">
+  <ul>
+    <? searchResults.forEach(function(item) { ?>
 
-<? }); ?>
+      <li> <?= item.Title ?> (<?= item.Year ?>) </li>
+
+    <? }); ?>
+  </ul>
+
+  <a href="/" class="text-center" style="display: block;">  Back to Search
+  </a>
+
+</div>
 
 </ include partials/footer ?>
