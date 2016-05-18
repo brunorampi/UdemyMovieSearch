@@ -1,6 +1,6 @@
 # UdemyAPITest
 
-<strong>Language: HTML/CSS+Bootstrap/JS+Express+EJS</strong>
+<strong>Language: HTML/CSS+Bootstrap/JS+Node+Express</strong>
 
 Search the OMDB API to display a list of Movies, Shows, or Games.
 
