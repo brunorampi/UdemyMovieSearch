@@ -14,7 +14,6 @@ const request = require('request');
 const DEFAULT_PORT = 3000;
 const PORT = process.env.PORT || DEFAULT_PORT;
 const SERVER_MSG = 'Api Test is now running on port ' + PORT;
-
 const mediaTypeStrings = {
   '': 'Media',
   'movie': 'Movies',
@@ -50,16 +49,11 @@ app.get('/results', function(req, res) {
     if (!error && response.statusCode === 200) {
       const searchResults = JSON.parse(body);
 
-      if (searchResults.Search) {
-        res.render('results', {
-          searchTerm: searchTerm,
-          mediaType: mediaTypeStrings[mediaType],
-          searchResults: searchResults.Search
-        });
-      } else {
-        res.send("No results found!");
-      }
-
+      res.render('results', {
+        searchTerm: searchTerm,
+        mediaType: mediaTypeStrings[mediaType],
+        searchResults: searchResults.Search
+      });
     } else {
       console.log('Status Code: ', response.statusCode);
       console.log('Error: ', error);
