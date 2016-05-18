@@ -15,6 +15,13 @@ const DEFAULT_PORT = 3000;
 const PORT = process.env.PORT || DEFAULT_PORT;
 const SERVER_MSG = 'Api Test is now running on port ' + PORT;
 
+const mediaTypeStrings = {
+  '': 'Media',
+  'movie': 'Movies',
+  'series': 'TV Shows',
+  'game': 'Videoames'
+};
+
 // SETTINGS
 
 app.set('view engine', 'ejs');
@@ -45,6 +52,8 @@ app.get('/results', function(req, res) {
 
       if (searchResults.Search) {
         res.render('results', {
+          searchTerm: searchTerm,
+          mediaType: mediaTypeStrings[mediaType],
           searchResults: searchResults.Search
         });
       } else {
