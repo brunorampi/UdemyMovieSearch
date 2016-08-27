@@ -8,4 +8,4 @@ Everyone says that APIs are really fun to use, and surprisingly easy; I agree wi
 
 <a href="http://darga-movie-search.herokuapp.com/"><b>Live Webpage</b></a>
 
-<img src ="http://66.media.tumblr.com/ce29f9a9604cd7db337322b1ac3adcae/tumblr_inline_o7d1lk2NXJ1tvc5hi_1280.png" height="250">
+<img src ="http://66.media.tumblr.com/ce29f9a9604cd7db337322b1ac3adcae/tumblr_inline_o7d1lk2NXJ1tvc5hi_1280.png" width="580">
